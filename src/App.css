@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+
+@layer base {
+	:root {
+		--font-sans: 'Poppins', sans-serif;
+		--color-primary: #1e1b3a;
+		--color-secondary: #2a2550;
+		--color-accent: #ff6b35;
+		--color-accent-pink: #ff0080;
+		--color-text-light: #e2e8f0;
+		--color-text-muted: #94a3b8;
+	}
+
+	body {
+		background: linear-gradient(135deg, #1e1b3a 0%, #2a2550 100%);
+		color: var(--color-text-light);
+	}
+
+	@keyframes scroll {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
+	}
+
+	.animate-scroll {
+		animation: scroll 30s linear infinite;
+	}
+
+	.animate-scroll:hover {
+		animation-play-state: paused;
+	}
+}
