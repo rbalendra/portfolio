@@ -3,7 +3,6 @@ import {
 	FaGitAlt,
 	FaHtml5,
 	FaJava,
-	FaNodeJs,
 	FaPython,
 	FaReact,
 } from 'react-icons/fa'
