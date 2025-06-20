@@ -1,5 +1,4 @@
 import { FaGithub, FaLinkedin, FaHeart } from 'react-icons/fa'
-import { HiMail } from 'react-icons/hi'
 
 export default function Footer() {
 	return (

@@ -28,10 +28,7 @@ const technologies = [
 		name: 'JavaScript',
 		icon: <SiJavascript className='w-8 h-8 text-[#F7DF1E]' />,
 	},
-	{
-		name: 'Node.js',
-		icon: <FaNodeJs className='w-8 h-8 text-[#339933]' />,
-	},
+
 	{
 		name: 'Java',
 		icon: <FaJava className='w-8 h-8 text-[#007396]' />,
@@ -77,12 +74,12 @@ export default function TechStack() {
 					Constantly learning and building with modern technologies
 				</p>
 			</div>
-
 			{/* Scrolling container */}
 			<div className='relative'>
 				{/* Gradient overlays */}
-				<div className='absolute left-0 top-0 w-50 h-full bg-gradient-to-r from-slate-900  to-transparent z-10 '></div>
-				<div className='absolute right-0 top-0 w-50 h-full bg-gradient-to-l from-slate-900  to-transparent z-10 '></div>
+				{/* <div className='absolute left-0 top-0 w-50 h-full bg-gradient-to-r from-slate-900  to-transparent z-10'></div> */}
+				<div className='absolute left-0 top-0 w-50  z-10'></div>
+				<div className='absolute right-0 top-0 w-50 z-10 '></div>
 
 				{/* Scrolling track */}
 				<div className='flex animate-scroll'>
@@ -92,7 +89,7 @@ export default function TechStack() {
 							key={`first-${index}`}
 							className='flex-shrink-0 mx-4 w-30 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-orange-400/50 transition-all duration-300 shadow-lg hover:shadow-orange-500/20 group'>
 							<div className='text-center'>
-								<div className='text-4xl mb-3 group-hover:scale-110 transition-transform duration-300 flex justify-center items-center'>
+								<div className='text-4xl mb-3 group-hover:scale-150 transition-transform duration-300 flex justify-center items-center'>
 									{tech.icon}
 								</div>
 								<span className='text-slate-300 font-medium group-hover:text-orange-400 transition-colors duration-300 flex justify-center items-center'>
@@ -107,7 +104,7 @@ export default function TechStack() {
 							key={`second-${index}`}
 							className='flex-shrink-0 mx-4 w-30 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-orange-400/50 transition-all duration-300 shadow-lg hover:shadow-orange-500/20 group'>
 							<div className='text-center'>
-								<div className='text-4xl mb-3 group-hover:scale-110 transition-transform duration-300 flex justify-center items-center'>
+								<div className='text-4xl mb-3 group-hover:scale-150 transition-transform duration-300 flex justify-center items-center'>
 									{tech.icon}
 								</div>
 								<span className='text-slate-300 font-medium group-hover:text-orange-400 transition-colors duration-300 flex justify-center items-center'>
