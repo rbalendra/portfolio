@@ -1,23 +1,54 @@
-const education = [
-	{
-		school: 'Swinburne University',
-		qualification: 'Post Graduate Certificate in Data Analytics',
-		year: '2023',
-		description:
-			'Advanced statistical analysis, machine learning, and data visualisation techniques with Tableau & Power BI.',
-		icon: '📊',
-	},
-	{
-		school: '_Nology',
-		qualification: 'Full-Stack Development',
-		year: '2025 March - Current',
-		description:
-			'Comprehensive training in modern web technologies, software engineering practices, and agile development. Focused on building scalable, user-friendly applications using React, TypeScript, and Springboot.',
-		icon: '💻',
-	},
-]
+import { useState, useEffect } from 'react'
+import { FaGraduationCap, FaLaptopCode, FaChartBar } from 'react-icons/fa'
+import {
+	getAllEducation,
+	type Education,
+} from '../../services/firestore-services'
+
+// Icon mapping based on qualification type
+const getEducationIcon = (qualification: string) => {
+	if (qualification.toLowerCase().includes('data')) {
+		return <FaChartBar className='w-8 h-8 text-orange-400' />
+	}
+	if (
+		qualification.toLowerCase().includes('development') ||
+		qualification.toLowerCase().includes('stack')
+	) {
+		return <FaLaptopCode className='w-8 h-8 text-orange-400' />
+	}
+	return <FaGraduationCap className='w-8 h-8 text-orange-400' />
+}
 
 export default function EducationSection() {
+	const [education, setEducation] = useState<Education[]>([])
+	const [loading, setLoading] = useState(true)
+
+	useEffect(() => {
+		const fetchEducation = async () => {
+			try {
+				const eduData = await getAllEducation()
+				setEducation(eduData)
+			} catch (error) {
+				console.error('Error loading education:', error)
+			} finally {
+				setLoading(false)
+			}
+		}
+
+		fetchEducation()
+	}, [])
+
+	if (loading) {
+		return (
+			<section className='max-w-4xl mx-auto mb-12 px-6'>
+				<h2 className='text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent'>
+					Education
+				</h2>
+				<p className='text-center text-slate-400'>Loading education...</p>
+			</section>
+		)
+	}
+
 	return (
 		<section className='max-w-4xl mx-auto mb-12 px-6'>
 			<h2 className='text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent'>
@@ -26,26 +57,45 @@ export default function EducationSection() {
 			<div className='grid md:grid-cols-2 gap-8'>
 				{education.map((edu) => (
 					<div
-						key={edu.school}
+						key={edu.id}
 						className='group bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8 hover:border-orange-400/50 transition-all duration-300 shadow-xl hover:shadow-orange-500/10 transform hover:scale-105'>
 						{/* Icon */}
-						<div className='text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300'>
-							{edu.icon}
+						<div className='mb-6 transform group-hover:scale-110 transition-transform duration-300 flex justify-center'>
+							<div className='w-25 h-16 bg-gradient-to-r from-orange-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-orange-400/30 group-hover:border-orange-400/60 transition-colors duration-300'>
+								{getEducationIcon(edu.qualification)}
+							</div>
 						</div>
 
 						{/* Content */}
 						<div className='mb-4'>
-							<h3 className='text-xl font-bold text-slate-100 group-hover:text-orange-400 transition-colors duration-300 mb-2'>
+							<h3 className='text-2xl font-bold text-slate-100 group-hover:text-orange-400 transition-colors duration-300 mb-2'>
 								{edu.qualification}
 							</h3>
-							<p className='text-orange-400 font-semibold mb-1'>{edu.school}</p>
-							<p className='text-slate-400 text-sm font-medium'>{edu.year}</p>
+							<p className='text-orange-400 font-semibold mb-1 text-xl'>
+								{edu.institution}
+							</p>
+							<p className='text-slate-400 text-sm font-medium'>{edu.period}</p>
 						</div>
 
-						<p className='text-slate-300 leading-relaxed'>{edu.description}</p>
+						<p className='text-slate-300 leading-relaxed mb-6'>
+							{edu.description}
+						</p>
+
+						{/* Skills */}
+						{edu.skills && edu.skills.length > 0 && (
+							<div className='flex flex-wrap gap-2 mb-4'>
+								{edu.skills.map((skill) => (
+									<span
+										key={skill}
+										className='px-3 py-1 bg-slate-700/50 text-slate-300 rounded-lg text-sm font-medium border border-slate-600/50 hover:border-orange-400/50 hover:text-orange-400 transition-all duration-300'>
+										{skill}
+									</span>
+								))}
+							</div>
+						)}
 
 						{/* Decorative Element */}
-						<div className='mt-6 h-1 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left'></div>
+						<div className='h-1 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left'></div>
 					</div>
 				))}
 			</div>
