@@ -1,42 +1,41 @@
-const experiences = [
-	{
-		role: 'Full Stack Developer Graduate',
-		company: 'Nology',
-		period: '2025 March - Current',
-		details:
-			'Learning React, TypeScript, Java, Spring Boot, and modern web development practices. Building full-stack applications and mastering both frontend and backend technologies.',
-		skills: [
-			'React',
-			'TypeScript',
-			'Java',
-			'Spring Boot',
-			'SQL',
-			'HTML',
-			'CSS',
-			'Tailwind CSS',
-			'Git',
-			'Agile Methodologies',
-			'Problem Solving',
-			'Collaboration',
-		],
-	},
-	{
-		role: 'Land Surveyor',
-		company: 'Land Management Surveys/CAF Consulting',
-		period: '2016 – 2024',
-		details:
-			'Delivered high-precision cadastral surveys under tight deadlines. Managed complex projects involving boundary determination, topographic mapping, and legal documentation.',
-		skills: [
-			'Project Management',
-			'Technical Documentation',
-			'Problem Solving',
-			'Client Relations',
-			'Attention to Detail',
-		],
-	},
-]
+import { useState, useEffect } from 'react'
+import {
+	getAllExperiences,
+	type Experience,
+} from '../../services/firestore-services'
 
 export default function Experience() {
+	const [experiences, setExperiences] = useState<Experience[]>([])
+	const [loading, setLoading] = useState(true)
+
+	useEffect(() => {
+		const fetchExperiences = async () => {
+			console.log('Fetching experiences...')
+			try {
+				const expData = await getAllExperiences()
+				console.log('Fetched experiences:', expData)
+				setExperiences(expData)
+			} catch (error) {
+				console.error('Error loading experiences:', error)
+			} finally {
+				setLoading(false)
+			}
+		}
+
+		fetchExperiences()
+	}, [])
+
+	if (loading) {
+		return (
+			<section className='max-w-4xl mx-auto mb-12 px-6'>
+				<h2 className='text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent'>
+					Experience
+				</h2>
+				<p className='text-center text-slate-400'>Loading experiences...</p>
+			</section>
+		)
+	}
+
 	return (
 		<section className='max-w-4xl mx-auto mb-12 px-6'>
 			<h2 className='text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent'>
@@ -45,7 +44,7 @@ export default function Experience() {
 			<div className='space-y-8'>
 				{experiences.map((exp, index) => (
 					<div
-						key={exp.role}
+						key={exp.id}
 						className='group bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8 hover:border-orange-400/50 transition-all duration-300 shadow-xl hover:shadow-orange-500/10'>
 						<div className='flex flex-col md:flex-row md:items-start gap-6'>
 							{/* Timeline Indicator */}
