@@ -1,11 +1,4 @@
-import {
-	FaCss3Alt,
-	FaGitAlt,
-	FaHtml5,
-	FaJava,
-	FaPython,
-	FaReact,
-} from 'react-icons/fa'
+import { FaCss3Alt, FaGitAlt, FaHtml5, FaJava, FaReact } from 'react-icons/fa'
 import {
 	SiJavascript,
 	SiMysql,
