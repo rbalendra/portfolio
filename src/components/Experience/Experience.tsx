@@ -28,7 +28,7 @@ export default function Experience() {
 	if (loading) {
 		return (
 			<section className='max-w-4xl mx-auto mb-12 px-6'>
-				<h2 className='text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent'>
+				<h2 className='text-4xl font-bold text-center mb-12 text-slate-800'>
 					Experience
 				</h2>
 				<p className='text-center text-slate-600'>Loading experiences...</p>
@@ -38,7 +38,7 @@ export default function Experience() {
 
 	return (
 		<section className='max-w-4xl mx-auto mb-12 px-6'>
-			<h2 className='text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent'>
+			<h2 className='text-4xl md:text-5xl font-bold mb-4 text-slate-800 text-center'>
 				Experience
 			</h2>
 			<div className='space-y-8'>
