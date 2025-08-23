@@ -6,28 +6,48 @@ export default function Hero() {
 			id='home'
 			className='min-h-screen flex items-center justify-center relative overflow-hidden'>
 			{/* Animated background elements */}
-			<div className='absolute inset-0 opacity-10'>
-				<div className='absolute top-1/4 left-1/4 w-72 h-72 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse'></div>
-				<div className='absolute top-1/3 right-1/4 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000'></div>
-				<div className='absolute bottom-1/4 left-1/3 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000'></div>
+			<div className='absolute inset-0 opacity-20'>
+				<div className='absolute top-1/4 left-1/4 w-96 h-96 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse'></div>
+				<div className='absolute top-1/3 right-1/4 w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000'></div>
+				<div className='absolute bottom-1/4 left-1/3 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000'></div>
 			</div>
 
 			<div className='max-w-6xl mx-auto px-6 relative z-10'>
 				<div className='grid md:grid-cols-2 gap-12 items-center'>
 					{/* Text Content */}
 					<div className='text-center md:text-left order-2 md:order-1'>
-						<h1 className='text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-orange-400 via-pink-400 to-orange-400 bg-clip-text text-transparent leading-25'>
-							Hey, I'm Rajeev
+						<h1 className='text-7xl md:text-8xl font-bold mb-8 text-slate-800 leading-tight'>
+							Hey, I'm{' '}
+							<span className='relative inline-block group cursor-pointer'>
+								<span className='bg-gradient-to-r from-orange-500 via-pink-500 to-orange-500 bg-clip-text text-transparent transition-all duration-500 group-hover:from-pink-500 group-hover:via-orange-500 group-hover:to-pink-500'>
+									Rajeev
+								</span>
+								<span className='absolute -bottom-2 left-0 w-0 h-1 bg-gradient-to-r from-orange-500 to-pink-500 group-hover:w-full transition-all duration-500 ease-out'></span>
+							</span>
 						</h1>
-						<p className='text-lg md:text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl'>
-							Aspiring Full-Stack Dev & ex-Land Surveyor from Melbourne blending
-							the passion for technology and user experience with code.
-							Currently transforming ideas into digital reality at Nology.
+
+						{/* Subtitle with hover effect like the reference site */}
+						<div className='mb-8 text-xl md:text-2xl text-slate-600 font-medium'>
+							<div className='relative inline-block group cursor-pointer'>
+								<span className='transition-opacity duration-300 group-hover:opacity-0'>
+									Aspiring Full-Stack Developer
+								</span>
+								<span className='absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent font-semibold'>
+									Focused on function. Driven by design.
+								</span>
+							</div>
+						</div>
+
+						<p className='text-lg text-slate-600 mb-10 leading-relaxed max-w-2xl'>
+							Ex-Land Surveyor from Melbourne blending passion for technology
+							and user experience with code. Currently transforming ideas into
+							digital reality at Nology.
 						</p>
+
 						<div className='flex flex-col sm:flex-row gap-4 justify-center md:justify-start'>
 							<a
 								href='#projects'
-								className='group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-8 py-4 rounded-2xl font-semibold hover:from-orange-400 hover:to-pink-400 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/25'>
+								className='group inline-flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-slate-800 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl'>
 								<span>View My Work</span>
 								<svg
 									className='w-5 h-5 group-hover:translate-x-1 transition-transform'
@@ -44,7 +64,7 @@ export default function Hero() {
 							</a>
 							<a
 								href='#contact'
-								className='inline-flex items-center justify-center gap-3 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 text-slate-300 px-8 py-4 rounded-2xl font-semibold hover:border-orange-400/50 hover:text-orange-400 transform hover:scale-105 transition-all duration-300'>
+								className='inline-flex items-center justify-center gap-3 bg-white border-2 border-slate-200 text-slate-700 px-8 py-4 rounded-2xl font-semibold hover:border-orange-400 hover:text-orange-500 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-lg'>
 								<span>Get In Touch</span>
 							</a>
 						</div>
@@ -52,13 +72,13 @@ export default function Hero() {
 
 					{/* Image */}
 					<div className='flex justify-center order-1 md:order-2'>
-						<div className='relative'>
+						<div className='relative animate-float'>
 							{/* Glowing effect behind image */}
-							<div className='absolute inset-0 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full blur-2xl opacity-20 scale-110'></div>
+							<div className='absolute inset-0 bg-gradient-to-r from-orange-400 to-pink-400 rounded-2xl blur-2xl opacity-30 scale-110'></div>
 							<img
 								src={heroImage}
 								alt='Rajeev'
-								className='relative w-150 shadow-2xl border-1 rounded-xl border-orange-400/30 hover:border-orange-400/50 transition-all duration-300 transform hover:scale-105'
+								className='relative w-80 md:w-300 rounded-2xl shadow-2xl border-4 border-white hover:scale-105 transition-all duration-500'
 							/>
 						</div>
 					</div>

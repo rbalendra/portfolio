@@ -24,54 +24,57 @@ export default function PortfolioCard() {
 	if (loading) {
 		return (
 			<section className='max-w-6xl mx-auto mb-12 px-6 py-16'>
-				<h2 className='text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent'>
+				<h2 className='text-4xl font-bold text-center mb-12 text-slate-800'>
 					Recent Projects
 				</h2>
-				<p className='text-center text-slate-400'>Loading projects...</p>
+				<p className='text-center text-slate-600'>Loading projects...</p>
 			</section>
 		)
 	}
 
 	return (
 		<section className='max-w-6xl mx-auto mb-12 px-6 py-16'>
-			<h2 className='text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent'>
-				Recent Projects
-			</h2>
+			<div className='text-center mb-16'>
+				<h2 className='text-4xl md:text-5xl font-bold mb-4 text-slate-800'>
+					Recent Projects
+				</h2>
+				<p className='text-xl text-slate-600 max-w-2xl mx-auto'>
+					A collection of work that showcases my passion for creating beautiful,
+					functional digital experiences
+				</p>
+			</div>
+
 			<div className='grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-				{projects.map((project) => (
+				{projects.map((project, index) => (
 					<div
 						key={project.id}
-						className='group bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl overflow-hidden hover:bg-slate-800/80 hover:border-orange-400/50 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-orange-500/20'>
-						{/* Project Image - IMPROVED VERSION */}
+						className='group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-100 hover:-translate-y-2 transition-all duration-500 border border-slate-300'
+						style={{ animationDelay: `${index * 0.1}s` }}>
+						{/* Project Image */}
 						{project.imageUrl ? (
-							<div className='relative h-80 overflow-hidden'>
+							<div className='relative h-48 overflow-hidden'>
 								<img
 									src={project.imageUrl}
 									alt={project.title}
-									className='w-full h-full object-cover group-hover:scale-100 transition-transform duration-300'
+									className='w-full h-full object-cover group-hover:scale-101 transition-transform duration-700'
 									onError={(e) => {
-										// Hide image if it fails to load
 										e.currentTarget.style.display = 'none'
 									}}
 								/>
-								<div className='absolute inset-0'></div>
+								<div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
 							</div>
 						) : (
-							// Placeholder when no image
-							<div className='relative h-56 bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center'>
-								{' '}
-								{/* Changed from h-48 to h-56 */}
-								<div className='text-slate-400 text-6xl'>📁</div>
-								<div className='absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent'></div>
+							<div className='relative h-48 bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center'>
+								<div className='text-slate-400 text-5xl'>📁</div>
 							</div>
 						)}
 
 						{/* Content */}
-						<div className='p-8'>
-							<h3 className='text-2xl font-bold mb-4 text-slate-100 group-hover:text-orange-400 transition-colors duration-300'>
+						<div className='p-6'>
+							<h3 className='text-xl font-bold mb-3 text-slate-800 group-hover:text-orange-500 transition-colors duration-300'>
 								{project.title}
 							</h3>
-							<p className='text-slate-400 mb-4 leading-relaxed'>
+							<p className='text-slate-600 mb-4 leading-relaxed text-sm'>
 								{project.description}
 							</p>
 
@@ -80,20 +83,20 @@ export default function PortfolioCard() {
 								{project.technologies.map((tech) => (
 									<span
 										key={tech}
-										className='px-3 py-1 bg-slate-700/50 text-slate-300 rounded-lg text-sm font-medium border border-slate-600/50 hover:border-orange-400/50 hover:text-orange-400 transition-all duration-300'>
+										className='px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium  hover:text-orange-600 transition-all duration-300'>
 										{tech}
 									</span>
 								))}
 							</div>
 
 							{/* Buttons */}
-							<div className='flex flex-wrap gap-3'>
+							<div className='flex gap-3'>
 								{project.githubUrl && (
 									<a
 										href={project.githubUrl}
 										target='_blank'
 										rel='noopener noreferrer'
-										className='inline-flex items-center gap-2 px-4 py-2 bg-slate-700/70 border-orange-500 text-slate-300 rounded-lg hover:bg-orange-500 hover:text-white transition-all duration-300 text-sm font-medium border hover:border-orange-400'>
+										className='inline-flex items-center gap-2 px-4 py-2 bg-slate-800 text-white rounded-xl hover:bg-slate-700 transition-all duration-300 text-sm font-medium shadow-md hover:shadow-lg transform hover:scale-105'>
 										<FaGithub className='w-3 h-3' />
 										GitHub
 									</a>
@@ -102,14 +105,13 @@ export default function PortfolioCard() {
 									<a
 										href={project.liveUrl}
 										target='_blank'
-										rel='noopener noreferrer'
-										className='inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-pink-500/80 to-orange-500/80 text-white rounded-lg hover:from-pink-500 hover:to-orange-500 transition-all duration-300 text-sm font-medium shadow-md hover:shadow-lg'>
+										className='inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-xl transition-all duration-300 text-sm font-medium shadow-md hover:shadow-lg transform hover:scale-105'>
 										<FaExternalLinkAlt className='w-3 h-3' />
 										Live Demo
 									</a>
 								)}
 								{!project.githubUrl && !project.liveUrl && (
-									<p className='text-slate-500 text-sm italic'>
+									<p className='text-slate-400 text-sm italic'>
 										Links coming soon...
 									</p>
 								)}

@@ -31,7 +31,7 @@ export default function Experience() {
 				<h2 className='text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent'>
 					Experience
 				</h2>
-				<p className='text-center text-slate-400'>Loading experiences...</p>
+				<p className='text-center text-slate-600'>Loading experiences...</p>
 			</section>
 		)
 	}
@@ -45,7 +45,7 @@ export default function Experience() {
 				{experiences.map((exp, index) => (
 					<div
 						key={exp.id}
-						className='group bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8 hover:border-orange-400/50 transition-all duration-300 shadow-xl hover:shadow-orange-500/10'>
+						className='group bg-white backdrop-blur-sm border border-slate-200 rounded-3xl p-8 hover:border-orange-400/50 hover:shadow-2xl transition-all duration-300 shadow-lg'>
 						<div className='flex flex-col md:flex-row md:items-start gap-6'>
 							{/* Timeline Indicator */}
 							<div className='flex-shrink-0'>
@@ -57,16 +57,16 @@ export default function Experience() {
 							{/* Content */}
 							<div className='flex-1'>
 								<div className='mb-4'>
-									<h3 className='text-2xl font-bold text-slate-100 group-hover:text-orange-400 transition-colors duration-300'>
+									<h3 className='text-2xl font-bold text-slate-800 group-hover:text-orange-500 transition-colors duration-300'>
 										{exp.role}
 									</h3>
-									<p className='text-xl text-orange-400 font-semibold'>
+									<p className='text-xl text-orange-500 font-semibold'>
 										@ {exp.company}
 									</p>
-									<p className='text-slate-400 mt-1'>{exp.period}</p>
+									<p className='text-slate-500 mt-1'>{exp.period}</p>
 								</div>
 
-								<p className='text-slate-300 leading-relaxed mb-6'>
+								<p className='text-slate-600 leading-relaxed mb-6'>
 									{exp.details}
 								</p>
 
@@ -75,7 +75,7 @@ export default function Experience() {
 									{exp.skills.map((skill) => (
 										<span
 											key={skill}
-											className='px-3 py-1 bg-slate-700/50 text-slate-300 rounded-lg text-sm font-medium border border-slate-600/50 hover:border-orange-400/50 hover:text-orange-400 transition-all duration-300'>
+											className='px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-orange-400/50 hover:text-orange-500 hover:bg-orange-50 transition-all duration-300'>
 											{skill}
 										</span>
 									))}

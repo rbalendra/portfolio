@@ -10,28 +10,33 @@ import PortfolioCard from './components/PortfolioCard/PortfolioCard'
 
 function App() {
 	return (
-		<div className='font-sans bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen text-slate-100'>
-			<Navbar />
-			<main className='max-w-6xl mx-auto px-6'>
-				<Hero />
+		<div className='font-sans min-h-screen text-slate-800 relative'>
+			{/* Light pattern background */}
+			<div className='fixed inset-0 opacity-100 pointer-events-none bg-light-pattern'></div>
 
-				<section id='techstack' className='py-1'>
-					<TechStack />
-				</section>
-				<section id='experience' className='py-16'>
-					<Experience />
-				</section>
-				<section id='education' className='py-16'>
-					<EducationSection />
-				</section>
-				<section id='projects'>
-					<PortfolioCard />
-				</section>
-				<section id='contact' className='py-16'>
-					<ContactForm />
-				</section>
-			</main>
-			<Footer />
+			<div className='relative z-10'>
+				<Navbar />
+				<main>
+					<Hero />
+
+					<section id='techstack' className='py-1'>
+						<TechStack />
+					</section>
+					<section id='experience' className='py-16'>
+						<Experience />
+					</section>
+					<section id='education' className='py-16'>
+						<EducationSection />
+					</section>
+					<section id='projects'>
+						<PortfolioCard />
+					</section>
+					<section id='contact' className='py-16'>
+						<ContactForm />
+					</section>
+				</main>
+				<Footer />
+			</div>
 		</div>
 	)
 }

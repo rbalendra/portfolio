@@ -44,7 +44,7 @@ export default function EducationSection() {
 				<h2 className='text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent'>
 					Education
 				</h2>
-				<p className='text-center text-slate-400'>Loading education...</p>
+				<p className='text-center text-slate-600'>Loading education...</p>
 			</section>
 		)
 	}
@@ -58,26 +58,26 @@ export default function EducationSection() {
 				{education.map((edu) => (
 					<div
 						key={edu.id}
-						className='group bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8 hover:border-orange-400/50 transition-all duration-300 shadow-xl hover:shadow-orange-500/10 transform hover:scale-105'>
+						className='group bg-white backdrop-blur-sm border border-slate-200 rounded-3xl p-8 hover:border-orange-400/50 hover:shadow-2xl transition-all duration-300 shadow-lg transform hover:scale-100'>
 						{/* Icon */}
 						<div className='mb-6 transform group-hover:scale-110 transition-transform duration-300 flex justify-center'>
-							<div className='w-25 h-16 bg-gradient-to-r from-orange-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-orange-400/30 group-hover:border-orange-400/60 transition-colors duration-300'>
+							<div className='w-20 h-16 bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-2xl flex items-center justify-center border border-orange-400/20 group-hover:border-orange-400/40 transition-colors duration-300'>
 								{getEducationIcon(edu.qualification)}
 							</div>
 						</div>
 
 						{/* Content */}
 						<div className='mb-4'>
-							<h3 className='text-2xl font-bold text-slate-100 group-hover:text-orange-400 transition-colors duration-300 mb-2'>
+							<h3 className='text-2xl font-bold text-slate-800 group-hover:text-orange-500 transition-colors duration-300 mb-2'>
 								{edu.qualification}
 							</h3>
-							<p className='text-orange-400 font-semibold mb-1 text-xl'>
+							<p className='text-orange-500 font-semibold mb-1 text-xl'>
 								{edu.institution}
 							</p>
-							<p className='text-slate-400 text-sm font-medium'>{edu.period}</p>
+							<p className='text-slate-500 text-sm font-medium'>{edu.period}</p>
 						</div>
 
-						<p className='text-slate-300 leading-relaxed mb-6'>
+						<p className='text-slate-600 leading-relaxed mb-6'>
 							{edu.description}
 						</p>
 
@@ -87,7 +87,7 @@ export default function EducationSection() {
 								{edu.skills.map((skill) => (
 									<span
 										key={skill}
-										className='px-3 py-1 bg-slate-700/50 text-slate-300 rounded-lg text-sm font-medium border border-slate-600/50 hover:border-orange-400/50 hover:text-orange-400 transition-all duration-300'>
+										className='px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-orange-400/50 hover:text-orange-500 hover:bg-orange-50 transition-all duration-300'>
 										{skill}
 									</span>
 								))}

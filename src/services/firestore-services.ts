@@ -1,11 +1,4 @@
-import {
-	collection,
-	getDocs,
-	orderBy,
-	query,
-	doc,
-	getDoc,
-} from 'firebase/firestore'
+import { collection, getDocs, orderBy, query } from 'firebase/firestore'
 import { db } from './firebase'
 
 // TypeScript interfaces for type safety

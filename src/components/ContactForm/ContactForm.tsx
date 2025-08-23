@@ -29,7 +29,7 @@ export default function ContactForm() {
 				<h2 className='text-4xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent'>
 					Let's Work Together
 				</h2>
-				<p className='text-slate-400 text-lg max-w-2xl mx-auto'>
+				<p className='text-slate-600 text-lg max-w-2xl mx-auto'>
 					Have a project in mind? I'd love to hear from you. Send me a message
 					and let's discuss how we can bring your ideas to life.
 				</p>
@@ -38,32 +38,32 @@ export default function ContactForm() {
 			<div className='grid md:grid-cols-2 gap-12 items-center'>
 				{/* Contact Info */}
 				<div className='space-y-8'>
-					<div className='flex items-center gap-4 p-6 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl hover:border-orange-400/50 transition-all duration-300'>
+					<div className='flex items-center gap-4 p-6 bg-white backdrop-blur-sm border border-slate-200 rounded-2xl hover:border-orange-400/50 hover:shadow-lg transition-all duration-300 shadow-md'>
 						<div className='w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl flex items-center justify-center'>
 							<HiLocationMarker className='w-6 h-6 text-white' />
 						</div>
 						<div>
-							<h3 className='text-white font-semibold'>Location</h3>
-							<p className='text-slate-400'>Melbourne, Victoria</p>
+							<h3 className='text-slate-800 font-semibold'>Location</h3>
+							<p className='text-slate-600'>Melbourne, Victoria</p>
 						</div>
 					</div>
 
-					<div className='flex items-center gap-4 p-6 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl hover:border-orange-400/50 transition-all duration-300'>
+					<div className='flex items-center gap-4 p-6 bg-white backdrop-blur-sm border border-slate-200 rounded-2xl hover:border-orange-400/50 hover:shadow-lg transition-all duration-300 shadow-md'>
 						<div className='w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl flex items-center justify-center'>
 							<FaGithub className='w-6 h-6 text-white' />
 						</div>
 						<div>
-							<h3 className='text-white font-semibold'>GitHub</h3>
-							<p className='text-slate-400'>github.com/rbalendra</p>
+							<h3 className='text-slate-800 font-semibold'>GitHub</h3>
+							<p className='text-slate-600'>github.com/rbalendra</p>
 						</div>
 					</div>
 				</div>
 
 				{/* Contact Form */}
-				<div className='bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8 shadow-xl'>
+				<div className='bg-white backdrop-blur-sm border border-slate-200 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300'>
 					<form onSubmit={handleSubmit} className='space-y-6'>
 						<div className='group'>
-							<label className='block text-sm font-medium text-slate-300 mb-2'>
+							<label className='block text-sm font-medium text-slate-700 mb-2'>
 								Your Name
 							</label>
 							<input
@@ -72,12 +72,12 @@ export default function ContactForm() {
 								onChange={handleChange}
 								placeholder='John Smith'
 								required
-								className='w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 focus:outline-none transition-all duration-300'
+								className='w-full p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-500 focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 focus:outline-none transition-all duration-300 hover:border-slate-300'
 							/>
 						</div>
 
 						<div className='group'>
-							<label className='block text-sm font-medium text-slate-300 mb-2'>
+							<label className='block text-sm font-medium text-slate-700 mb-2'>
 								Email Address
 							</label>
 							<input
@@ -87,12 +87,12 @@ export default function ContactForm() {
 								onChange={handleChange}
 								placeholder='john@example.com'
 								required
-								className='w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 focus:outline-none transition-all duration-300'
+								className='w-full p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-500 focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 focus:outline-none transition-all duration-300 hover:border-slate-300'
 							/>
 						</div>
 
 						<div className='group'>
-							<label className='block text-sm font-medium text-slate-300 mb-2'>
+							<label className='block text-sm font-medium text-slate-700 mb-2'>
 								Message
 							</label>
 							<textarea
@@ -102,7 +102,7 @@ export default function ContactForm() {
 								placeholder='Tell me about your project...'
 								rows={5}
 								required
-								className='w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 focus:outline-none transition-all duration-300 resize-none'
+								className='w-full p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-500 focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 focus:outline-none transition-all duration-300 resize-none hover:border-slate-300'
 							/>
 						</div>
 

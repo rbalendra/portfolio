@@ -27,7 +27,6 @@ const technologies = [
 		name: 'JavaScript',
 		icon: <SiJavascript className='w-8 h-8 text-[#F7DF1E]' />,
 	},
-
 	{
 		name: 'Java',
 		icon: <FaJava className='w-8 h-8 text-[#007396]' />,
@@ -69,16 +68,15 @@ export default function TechStack() {
 				<h2 className='text-4xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent'>
 					Technologies I Work With
 				</h2>
-				<p className='text-slate-400 text-lg'>
+				<p className='text-slate-600 text-lg'>
 					Constantly learning and building with modern technologies
 				</p>
 			</div>
 			{/* Scrolling container */}
 			<div className='relative'>
 				{/* Gradient overlays */}
-				{/* <div className='absolute left-0 top-0 w-50 h-full bg-gradient-to-r from-slate-900  to-transparent z-10'></div> */}
-				<div className='absolute left-0 top-0 w-50  z-10'></div>
-				<div className='absolute right-0 top-0 w-50 z-10 '></div>
+				<div className='absolute left-0 top-0 w-50 z-10'></div>
+				<div className='absolute right-0 top-0 w-50 z-10'></div>
 
 				{/* Scrolling track */}
 				<div className='flex animate-scroll'>
@@ -86,12 +84,12 @@ export default function TechStack() {
 					{technologies.map((tech, index) => (
 						<div
 							key={`first-${index}`}
-							className='flex-shrink-0 mx-4 w-30 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-orange-400/50 transition-all duration-300 shadow-lg hover:shadow-orange-500/20 group'>
+							className='flex-shrink-0 mx-4 w-32 bg-white backdrop-blur-sm border border-slate-200 rounded-2xl p-6 hover:border-orange-400/50 hover:shadow-2xl transition-all duration-300 shadow-lg group transform hover:scale-105 hover:-translate-y-1'>
 							<div className='text-center'>
-								<div className='text-4xl mb-3 group-hover:scale-150 transition-transform duration-300 flex justify-center items-center'>
+								<div className='text-4xl mb-3 group-hover:scale-110 transition-transform duration-300 flex justify-center items-center'>
 									{tech.icon}
 								</div>
-								<span className='text-slate-300 font-medium group-hover:text-orange-400 transition-colors duration-300 flex justify-center items-center'>
+								<span className='text-slate-700 font-medium group-hover:text-orange-500 transition-colors duration-300 flex justify-center items-center text-sm'>
 									{tech.name}
 								</span>
 							</div>
@@ -101,12 +99,12 @@ export default function TechStack() {
 					{technologies.map((tech, index) => (
 						<div
 							key={`second-${index}`}
-							className='flex-shrink-0 mx-4 w-30 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-orange-400/50 transition-all duration-300 shadow-lg hover:shadow-orange-500/20 group'>
+							className='flex-shrink-0 mx-4 w-32 bg-white backdrop-blur-sm border border-slate-200 rounded-2xl p-6 hover:border-orange-400/50 hover:shadow-2xl transition-all duration-300 shadow-lg group transform hover:scale-105 hover:-translate-y-1'>
 							<div className='text-center'>
-								<div className='text-4xl mb-3 group-hover:scale-150 transition-transform duration-300 flex justify-center items-center'>
+								<div className='text-4xl mb-3 group-hover:scale-110 transition-transform duration-300 flex justify-center items-center'>
 									{tech.icon}
 								</div>
-								<span className='text-slate-300 font-medium group-hover:text-orange-400 transition-colors duration-300 flex justify-center items-center'>
+								<span className='text-slate-700 font-medium group-hover:text-orange-500 transition-colors duration-300 flex justify-center items-center text-sm'>
 									{tech.name}
 								</span>
 							</div>
