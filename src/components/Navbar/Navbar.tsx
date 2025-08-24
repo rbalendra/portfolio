@@ -6,7 +6,7 @@ import rajcv from '../../assets/Rajeev_CV.pdf'
 const links = ['Experience', 'Education', 'Projects', 'Contact'] as const
 
 export default function Navbar() {
-	const [isMenuOpen, setIsMenuOpen] = useState(false)
+	const [isMenuOpen, setIsMenuOpen] = useState(false) // this 
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen)
