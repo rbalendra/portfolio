@@ -1,70 +1,69 @@
 @import 'tailwindcss';
 
 @layer base {
+	/* CSS Custom Properties (CSS Variables) for consistent theming */
 	:root {
-		--font-sans: 'Poppins', sans-serif;
+		--font-sans: 'Poppins', sans-serif; /* Main font family */
 		--color-primary: #ffffff;
 		--color-secondary: #f8fafc;
-		--color-accent: #ff6b35;
+		--color-accent: #ff6b35; /* Orange - accent color */
 		--color-accent-pink: #ff0080;
-		--color-text-dark: #1e293b;
+		--color-text-dark: #1e293b; /* Dark slate - main text */
 		--color-text-muted: #64748b;
 	}
 
-	/* Add smooth scrolling */
+	/* Enable smooth scrolling behavior for anchor links */
 	html {
 		scroll-behavior: smooth;
 	}
 
+	/* Main body styling with gradient background */
 	body {
 		background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 		color: var(--color-text-dark);
 	}
 
+	/* Add top margin when scrolling to sections (accounts for fixed navbar) */
 	section {
 		scroll-margin-top: 80px;
 	}
 
-	/* Better text rendering for transforms */
+	/* Improve text rendering quality across all browsers */
 	* {
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased; /* Chrome/Safari text smoothing */
+		-moz-osx-font-smoothing: grayscale; /* Firefox text smoothing */
 	}
+}
 
-	/* Smooth card hover effects */
-	.card-hover {
-		backface-visibility: hidden;
-		perspective: 1000px;
-		transform-style: preserve-3d;
-		will-change: transform;
-		transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-	}
-
-	.card-hover:hover {
-		transform: scale(1.03) translateY(-4px) translateZ(0);
-	}
-
-	/* Fixed seamless scrolling animation */
-	@keyframes scroll {
-		0% {
-			transform: translateX(0);
-		}
-		100% {
-			transform: translateX(
-				calc(-192px * 11)
-			); /* 192px = 128px width + 64px margins (32px each side) * 11 items */
-		}
-	}
-
+@layer utilities {
+	/* Infinite horizontal scroll animation for tech stack */
 	.animate-scroll {
-		animation: scroll 30s linear infinite;
+		animation: scroll 30s linear infinite; /* 30 second duration, linear timing, infinite loop */
 	}
 
+	/* Pause animation on hover for better user experience */
 	.animate-scroll:hover {
 		animation-play-state: paused;
 	}
 
-	/* Floating card animation */
+	/* Keyframes for the horizontal scroll animation */
+	@keyframes scroll {
+		0% {
+			transform: translateX(0); /* Start position */
+		}
+		100% {
+			transform: translateX(
+				calc(-192px * 11)
+			); /* Move left by 11 items (192px = item width + margins) */
+		}
+	}
+
+	/* Gentle up-and-down floating animation for hero elements */
+	.animate-float {
+		animation: float 6s ease-in-out infinite; /* 6 second duration, smooth easing, infinite loop */
+	}
+
+	/* Keyframes for the floating animation */
 	@keyframes float {
 		0%,
 		100% {
@@ -74,20 +73,11 @@
 			transform: translateY(-10px);
 		}
 	}
-
-	.animate-float {
-		animation: float 6s ease-in-out infinite;
-	}
-
-	/* Glow effect */
-	.glow-effect {
-		box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
-	}
 }
 
+/* Subtle dot pattern background for visual texture */
 .bg-light-pattern {
-	background-color: #f8fafc;
-	background-image: radial-gradient(
+	background: radial-gradient(
 			circle,
 			rgba(255, 107, 53, 0.08) 1px,
 			transparent 1px
@@ -99,9 +89,10 @@
 		);
 	background-size: 30px 30px, 60px 60px;
 	background-position: 0 0, 15px 15px;
+	background-color: #f8fafc;
 }
 
-/* Glassmorphism effect */
+/* Modern glassmorphism effect for navigation and cards */
 .glass-effect {
 	backdrop-filter: blur(10px);
 	background: rgba(255, 255, 255, 0.25);
