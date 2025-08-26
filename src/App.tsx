@@ -11,9 +11,6 @@ import PortfolioCard from './components/PortfolioCard/PortfolioCard'
 function App() {
 	return (
 		<div className='font-sans min-h-screen text-slate-800 relative'>
-			{/* Light pattern background */}
-			<div className='fixed inset-0 opacity-100 pointer-events-none bg-light-pattern'></div>
-
 			<div className='relative z-10'>
 				<Navbar />
 				<main>

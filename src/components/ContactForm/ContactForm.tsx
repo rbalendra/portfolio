@@ -25,7 +25,7 @@ export default function ContactForm() {
 	return (
 		<section className='max-w-4xl mx-auto px-6'>
 			<div className='text-center mb-12'>
-				<h2 className='text-4xl md:text-5xl font-bold mb-4 text-slate-800'>
+				<h2 className='text-4xl md:text-5xl font-bold mb-4 text-slate-800 py-5'>
 					Let's Work Together
 				</h2>
 				<p className='text-slate-600 text-lg max-w-2xl mx-auto'>

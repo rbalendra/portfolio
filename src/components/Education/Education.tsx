@@ -51,7 +51,7 @@ export default function EducationSection() {
 
 	return (
 		<section className='max-w-4xl mx-auto mb-12 px-6'>
-			<h2 className='text-4xl md:text-5xl font-bold mb-4 text-slate-800 text-center'>
+			<h2 className='text-4xl md:text-5xl font-bold mb-4 text-slate-800 text-center py-5'>
 				Education
 			</h2>
 			<div className='grid md:grid-cols-2 gap-8'>
