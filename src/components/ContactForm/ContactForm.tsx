@@ -2,24 +2,53 @@ import React, { useState } from 'react'
 import { HiLocationMarker, HiArrowRight } from 'react-icons/hi'
 import { FaGithub, FaSpinner } from 'react-icons/fa'
 
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${
+	import.meta.env.VITE_FORMSPREE_FORM_ID
+}`
+
 export default function ContactForm() {
 	const [form, setForm] = useState({ name: '', email: '', message: '' })
 	const [isSubmitting, setIsSubmitting] = useState(false)
+	const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
+	const [errorMsg, setErrorMsg] = useState('')
 
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-	) => setForm({ ...form, [e.target.name]: e.target.value })
+	) => {
+		setForm({ ...form, [e.target.name]: e.target.value })
+		if (status !== 'idle') setStatus('idle')
+	}
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault()
 		setIsSubmitting(true)
+		setErrorMsg('')
+		try {
+			const data = new FormData()
+			data.append('name', form.name)
+			data.append('email', form.email)
+			data.append('message', form.message)
 
-		await new Promise((resolve) => setTimeout(resolve, 1000))
+			const res = await fetch(FORMSPREE_ENDPOINT, {
+				method: 'POST',
+				body: data,
+				headers: { Accept: 'application/json' },
+			})
 
-		console.log(form)
-		alert("Thanks for reaching out! I'll get back to you soon.")
-		setForm({ name: '', email: '', message: '' })
-		setIsSubmitting(false)
+			if (res.ok) {
+				setStatus('success')
+				setForm({ name: '', email: '', message: '' })
+			} else {
+				const json = await res.json().catch(() => ({}))
+				setErrorMsg(json.errors?.[0]?.message || 'Submission failed.')
+				setStatus('error')
+			}
+		} catch {
+			setErrorMsg('Network error. Please try again.')
+			setStatus('error')
+		} finally {
+			setIsSubmitting(false)
+		}
 	}
 
 	return (
@@ -60,11 +89,7 @@ export default function ContactForm() {
 
 				{/* Contact Form */}
 				<div className='bg-white backdrop-blur-sm border border-slate-200 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300'>
-					<form
-						action='https://formspree.io/f/xjkeooeo'
-						method='POST'
-						onSubmit={handleSubmit}
-						className='space-y-6'>
+					<form onSubmit={handleSubmit} className='space-y-6'>
 						<div className='group'>
 							<label className='block text-sm font-medium text-slate-700 mb-2'>
 								Your Name
@@ -125,6 +150,16 @@ export default function ContactForm() {
 								</>
 							)}
 						</button>
+						{status === 'success' && (
+							<p className='text-green-600 text-sm font-medium text-center'>
+								✅ Message sent! I'll get back to you soon.
+							</p>
+						)}
+						{status === 'error' && (
+							<p className='text-red-600 text-sm font-medium text-center'>
+								❌ {errorMsg}
+							</p>
+						)}
 					</form>
 				</div>
 			</div>
