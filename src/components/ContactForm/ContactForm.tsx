@@ -60,7 +60,11 @@ export default function ContactForm() {
 
 				{/* Contact Form */}
 				<div className='bg-white backdrop-blur-sm border border-slate-200 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300'>
-					<form onSubmit={handleSubmit} className='space-y-6'>
+					<form
+						action='https://formspree.io/f/xjkeooeo'
+						method='POST'
+						onSubmit={handleSubmit}
+						className='space-y-6'>
 						<div className='group'>
 							<label className='block text-sm font-medium text-slate-700 mb-2'>
 								Your Name
